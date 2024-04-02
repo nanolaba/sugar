@@ -11,9 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class CodeTest {
 
     @Test
-    public void testCodeInterfaceCanBeImplemented() {
+    public void testCodeCanBeInherited() {
 
-        class ExtendedCode implements Code {
+        class ExtendedCode extends Code {
         }
 
         Code myCode = new ExtendedCode();

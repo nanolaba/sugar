@@ -2,9 +2,12 @@ package com.nanolaba.sugar;
 
 import java.util.function.Supplier;
 
-public interface Code {
+public class Code {
 
-    static void run(CodeAction runnable) {
+    protected Code() {
+    }
+
+    public static void run(CodeAction runnable) {
         try {
             runnable.run();
         } catch (Exception t) {
@@ -12,7 +15,7 @@ public interface Code {
         }
     }
 
-    static <T> T run(CodeSupplier<T> runnable) {
+    public static <T> T run(CodeSupplier<T> runnable) {
         try {
             return runnable.get();
         } catch (Exception t) {
@@ -20,7 +23,7 @@ public interface Code {
         }
     }
 
-    static <T> T runQuietly(CodeSupplier<T> runnable, Supplier<T> defaultObject) {
+    public static <T> T runQuietly(CodeSupplier<T> runnable, Supplier<T> defaultObject) {
         try {
             return runnable.get();
         } catch (Exception t) {
@@ -28,19 +31,19 @@ public interface Code {
         }
     }
 
-    static void runQuietly(CodeAction runnable) {
+    public static void runQuietly(CodeAction runnable) {
         try {
             runnable.run();
         } catch (Exception t) {/**/}
     }
 
     @FunctionalInterface
-    interface CodeAction {
+    public interface CodeAction {
         void run() throws Exception;
     }
 
     @FunctionalInterface
-    interface CodeSupplier<T> {
+    public interface CodeSupplier<T> {
         T get() throws Exception;
     }
 }
