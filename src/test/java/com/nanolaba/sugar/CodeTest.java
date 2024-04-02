@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 class CodeTest {
 
     @Test
-    public void testCodeClassCanBeInherited() {
+    public void testCodeClassCanBeImplemented() {
 
-        class ExtendedCode extends Code {
+        class ExtendedCode implements Code {
         }
 
         Code myCode = new ExtendedCode();

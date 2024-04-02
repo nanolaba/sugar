@@ -1,6 +1,5 @@
 package com.nanolaba.sugar;
 
-public class Code {
+public interface Code {
 
-    protected Code() {/**/}
 }
