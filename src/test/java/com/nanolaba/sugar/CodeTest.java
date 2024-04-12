@@ -39,7 +39,7 @@ class CodeTest {
     }
 
     @Test
-    public void testRunWithThrowingAnNPE() {
+    public void testRunWithThrowingNPE() {
         AtomicBoolean started = new AtomicBoolean(false);
         assertThrows(RuntimeException.class, () ->
                 run(() -> {
@@ -51,7 +51,7 @@ class CodeTest {
     }
 
     @Test
-    public void testRunWithThrowingAnError() {
+    public void testRunWithThrowingError() {
         AtomicBoolean started = new AtomicBoolean(false);
         assertThrows(InternalError.class, () ->
                 run(() -> {
@@ -63,7 +63,7 @@ class CodeTest {
     }
 
     @Test
-    public void testRunWithThrowingAnException() {
+    public void testRunWithThrowingException() {
         AtomicBoolean started = new AtomicBoolean(false);
 
         assertThrows(RuntimeException.class, () ->
@@ -77,7 +77,7 @@ class CodeTest {
     }
 
     @Test
-    public void testRunSupplierWithThrowingAnException() {
+    public void testRunSupplierWithThrowingException() {
         AtomicBoolean started = new AtomicBoolean(false);
 
         assertThrows(RuntimeException.class, () -> {
