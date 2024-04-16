@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static com.nanolaba.sugar.Code.run;
-import static com.nanolaba.sugar.Code.runQuietly;
+import static com.nanolaba.sugar.Code.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SuppressWarnings({"DataFlowIssue", "unused"})
@@ -122,5 +121,20 @@ class CodeTest {
 
         assertEquals(defaultValue, (long) v);
         assertTrue(started.get());
+    }
+
+    @Test
+    public void testEqualsAny() {
+        assertTrue(equalsAny("1", "1"));
+        assertTrue(equalsAny("1", "1", "2", "3"));
+        assertTrue(equalsAny(null, null));
+        assertTrue(equalsAny(null, "1", null, "3"));
+
+        assertFalse(equalsAny("1", "2", "3"));
+        assertFalse(equalsAny("1", "2", "3", null));
+        assertFalse(equalsAny("1", null));
+        assertFalse(equalsAny("1"));
+        assertFalse(equalsAny(null, "1"));
+        assertFalse(equalsAny(null, "1", "2", "3"));
     }
 }

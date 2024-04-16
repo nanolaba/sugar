@@ -1,5 +1,6 @@
 package com.nanolaba.sugar;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public class Code {
@@ -35,6 +36,17 @@ public class Code {
         try {
             runnable.run();
         } catch (Exception t) {/**/}
+    }
+
+    public static Boolean equalsAny(Object compared, Object... values) {
+        if (values != null) {
+            for (Object value : values) {
+                if (Objects.equals(compared, value)) {
+                    return true;
+                }
+            }
+        }
+        return compared == null && values == null;
     }
 
     @FunctionalInterface
