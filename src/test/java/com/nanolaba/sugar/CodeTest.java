@@ -3,6 +3,8 @@ package com.nanolaba.sugar;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Supplier;
 
 import static com.nanolaba.sugar.Code.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -136,5 +138,41 @@ class CodeTest {
         assertFalse(equalsAny("1"));
         assertFalse(equalsAny(null, "1"));
         assertFalse(equalsAny(null, "1", "2", "3"));
+    }
+
+    @Test
+    public void testMemoize() {
+
+        AtomicInteger counter = new AtomicInteger();
+
+        Supplier<Integer> memoizedSupplier = memoize(counter::incrementAndGet);
+
+        assertEquals(counter.get(), 0);
+
+        //first call
+        assertEquals(memoizedSupplier.get(), 1);
+        assertEquals(counter.get(), 1);
+
+        //second call
+        assertEquals(memoizedSupplier.get(), 1);
+        assertEquals(counter.get(), 1);
+
+        //third call
+        counter.incrementAndGet();
+        assertEquals(memoizedSupplier.get(), 1);
+        assertEquals(counter.get(), 2);
+    }
+
+    @Test
+    public void testMemoizeWithNullValue() {
+        var memoizedSupplier = memoize(() -> null);
+        assertNull(memoizedSupplier.get());
+    }
+
+    @SuppressWarnings("ConstantValue")
+    @Test
+    public void testMemoizeWithNullSupplier() {
+        var memoizedSupplier = memoize(null);
+        assertNull(memoizedSupplier);
     }
 }
