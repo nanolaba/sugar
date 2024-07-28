@@ -129,12 +129,14 @@ class CodeTest {
     public void testEqualsAny() {
         assertTrue(equalsAny("1", "1"));
         assertTrue(equalsAny("1", "1", "2", "3"));
-        assertTrue(equalsAny(null, null));
+        assertTrue(equalsAny(null, (Object) null));
+        assertTrue(equalsAny(null, (Object[]) null));
         assertTrue(equalsAny(null, "1", null, "3"));
 
         assertFalse(equalsAny("1", "2", "3"));
         assertFalse(equalsAny("1", "2", "3", null));
-        assertFalse(equalsAny("1", null));
+        assertFalse(equalsAny("1", (Object) null));
+        assertFalse(equalsAny("1", (Object[]) null));
         assertFalse(equalsAny("1"));
         assertFalse(equalsAny(null, "1"));
         assertFalse(equalsAny(null, "1", "2", "3"));
@@ -165,14 +167,14 @@ class CodeTest {
 
     @Test
     public void testMemoizeWithNullValue() {
-        var memoizedSupplier = memoize(() -> null);
+        Supplier<Object> memoizedSupplier = memoize(() -> null);
         assertNull(memoizedSupplier.get());
     }
 
     @SuppressWarnings("ConstantValue")
     @Test
     public void testMemoizeWithNullSupplier() {
-        var memoizedSupplier = memoize(null);
+        Supplier<Object> memoizedSupplier = memoize(null);
         assertNull(memoizedSupplier);
     }
 }
