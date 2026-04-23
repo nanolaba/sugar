@@ -31,7 +31,6 @@ Released artifacts are published to **Maven Central** — no extra repository co
 **Maven**
 
 ```xml
-
 <dependency>
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
@@ -85,9 +84,7 @@ Wraps a lambda that may throw a checked `Exception`. Any exception is rethrown a
 byte[] content = run(() -> Files.readAllBytes(path));
 
 // Side effect only
-run(() ->Thread.
-
-sleep(100));
+run(() ->Thread.sleep(100));
 ```
 
 ### `runQuietly` — ${en:'swallow, or fall back to a default', ru:'поглощаем исключение или возвращаем значение по умолчанию'}
@@ -100,9 +97,7 @@ Swallows any exception from the lambda. The overload with a default `Supplier` r
 int port = runQuietly(() -> Integer.parseInt(System.getenv("PORT")), () -> 8080);
 
 // Fire-and-forget
-runQuietly(() ->socket.
-
-close());
+runQuietly(() ->socket.close());
 ```
 
 ### `equalsAny` — ${en:'null-safe multi-value equality', ru:'null-безопасное равенство с любым из значений'}
@@ -112,8 +107,8 @@ Returns `true` if the first argument equals any of the following ones, using `Ob
 
 ```java
 if(equalsAny(status, "OK","READY","IDLE")){
-        // ...
-        }
+// ...
+}
 ```
 
 ### `memoize` — ${en:'lazy, thread-safe, compute-at-most-once', ru:'ленивая, потокобезопасная мемоизация'}
@@ -123,12 +118,8 @@ Wraps a `Supplier<T>` so its value is computed at most once. The first `get()` i
 
 ```java
 Supplier<Config> config = memoize(() -> loadConfigFromDisk());
-config.
-
-get(); // reads from disk
-config.
-
-get(); // cached, no lock
+config.get(); // reads from disk
+config.get(); // cached, no lock
 ```
 
 ## ${en:'Building from source', ru:'Сборка из исходников'}

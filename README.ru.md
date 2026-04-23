@@ -23,6 +23,7 @@
 5. [Ссылки](#ссылки)
 6. [Лицензия](#лицензия)
 
+
 ## Требования
 
 - Java 8+
@@ -35,7 +36,6 @@
 **Maven**
 
 ```xml
-
 <dependency>
     <groupId>com.nanolaba</groupId>
     <artifactId>sugar</artifactId>
@@ -86,9 +86,7 @@ import static com.nanolaba.sugar.Code.*;
 byte[] content = run(() -> Files.readAllBytes(path));
 
 // Side effect only
-run(() ->Thread.
-
-sleep(100));
+run(() ->Thread.sleep(100));
 ```
 
 ### `runQuietly` — поглощаем исключение или возвращаем значение по умолчанию
@@ -100,9 +98,7 @@ sleep(100));
 int port = runQuietly(() -> Integer.parseInt(System.getenv("PORT")), () -> 8080);
 
 // Fire-and-forget
-runQuietly(() ->socket.
-
-close());
+runQuietly(() ->socket.close());
 ```
 
 ### `equalsAny` — null-безопасное равенство с любым из значений
@@ -111,8 +107,8 @@ close());
 
 ```java
 if(equalsAny(status, "OK","READY","IDLE")){
-        // ...
-        }
+// ...
+}
 ```
 
 ### `memoize` — ленивая, потокобезопасная мемоизация
@@ -121,12 +117,8 @@ if(equalsAny(status, "OK","READY","IDLE")){
 
 ```java
 Supplier<Config> config = memoize(() -> loadConfigFromDisk());
-config.
-
-get(); // reads from disk
-config.
-
-get(); // cached, no lock
+config.get(); // reads from disk
+config.get(); // cached, no lock
 ```
 
 ## Сборка из исходников
