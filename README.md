@@ -11,18 +11,18 @@ A tiny, zero-dependency Java library of static syntactic-sugar helpers — one c
 The whole library is a single class, `com.nanolaba.sugar.Code`, with helpers for the most common friction points: running lambdas that throw checked exceptions, multi-value equality checks, and lazy memoization.
 
 ## Table of contents
-
 1. [Requirements](#requirements)
 2. [Installation](#installation)
-    1. [Snapshot versions](#snapshot-versions)
+	1. [Snapshot versions](#snapshot-versions)
 3. [Usage](#usage)
-    1. [`run` — checked exceptions out of the way](#run-checked-exceptions-out-of-the-way)
-    2. [`runQuietly` — swallow, or fall back to a default](#runquietly-swallow-or-fall-back-to-a-default)
-    3. [`equalsAny` — null-safe multi-value equality](#equalsany-null-safe-multi-value-equality)
-    4. [`memoize` — lazy, thread-safe, compute-at-most-once](#memoize-lazy-thread-safe-compute-at-most-once)
+	1. [`run` — checked exceptions out of the way](#run-checked-exceptions-out-of-the-way)
+	2. [`runQuietly` — swallow, or fall back to a default](#runquietly-swallow-or-fall-back-to-a-default)
+	3. [`equalsAny` — null-safe multi-value equality](#equalsany-null-safe-multi-value-equality)
+	4. [`memoize` — lazy, thread-safe, compute-at-most-once](#memoize-lazy-thread-safe-compute-at-most-once)
 4. [Building from source](#building-from-source)
 5. [Links](#links)
 6. [License](#license)
+
 
 ## Requirements
 
@@ -36,6 +36,7 @@ Released artifacts are published to **Maven Central** — no extra repository co
 **Maven**
 
 ```xml
+
 <dependency>
     <groupId>com.nanolaba</groupId>
     <artifactId>sugar</artifactId>
@@ -56,6 +57,7 @@ dependencies {
 To use a development snapshot, add the Sonatype Central snapshot repository:
 
 ```xml
+
 <repositories>
     <repository>
         <id>central.sonatype.com-snapshot</id>
@@ -85,7 +87,9 @@ Wraps a lambda that may throw a checked `Exception`. Any exception is rethrown a
 byte[] content = run(() -> Files.readAllBytes(path));
 
 // Side effect only
-run(() -> Thread.sleep(100));
+run(() ->Thread.
+
+sleep(100));
 ```
 
 ### `runQuietly` — swallow, or fall back to a default
@@ -97,7 +101,9 @@ Swallows any exception from the lambda. The overload with a default `Supplier` r
 int port = runQuietly(() -> Integer.parseInt(System.getenv("PORT")), () -> 8080);
 
 // Fire-and-forget
-runQuietly(() -> socket.close());
+runQuietly(() ->socket.
+
+close());
 ```
 
 ### `equalsAny` — null-safe multi-value equality
@@ -105,9 +111,9 @@ runQuietly(() -> socket.close());
 Returns `true` if the first argument equals any of the following ones, using `Objects.equals` (so `null` is compared safely).
 
 ```java
-if (equalsAny(status, "OK", "READY", "IDLE")) {
-    // ...
-}
+if(equalsAny(status, "OK","READY","IDLE")){
+        // ...
+        }
 ```
 
 ### `memoize` — lazy, thread-safe, compute-at-most-once
@@ -116,8 +122,12 @@ Wraps a `Supplier<T>` so its value is computed at most once. The first `get()` i
 
 ```java
 Supplier<Config> config = memoize(() -> loadConfigFromDisk());
-config.get(); // reads from disk
-config.get(); // cached, no lock
+config.
+
+get(); // reads from disk
+config.
+
+get(); // cached, no lock
 ```
 
 ## Building from source
