@@ -10,6 +10,11 @@ ${widget:languages}
 
 # Sugar
 
+[![CI](${repoUrl}/actions/workflows/ci.yml/badge.svg)](${repoUrl}/actions/workflows/ci.yml)
+[![Maven Central](https://img.shields.io/maven-central/v/${groupId}/${artifactId}?label=Maven%20Central)](https://central.sonatype.com/artifact/${groupId}/${artifactId})
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+![Java](https://img.shields.io/badge/Java-8%2B-blue)
+
 A tiny, zero-dependency Java library of static syntactic-sugar helpers — one class, one purpose: cut the boilerplate out of everyday Java.<!--en-->
 Крошечная Java-библиотека без зависимостей со статическими синтаксическими хелперами — один класс, одна цель: убрать шаблонный код из повседневной Java.<!--ru-->
 

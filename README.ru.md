@@ -6,6 +6,11 @@
 
 # Sugar
 
+[![CI](https://github.com/nanolaba/sugar/actions/workflows/ci.yml/badge.svg)](https://github.com/nanolaba/sugar/actions/workflows/ci.yml)
+[![Maven Central](https://img.shields.io/maven-central/v/com.nanolaba/sugar?label=Maven%20Central)](https://central.sonatype.com/artifact/com.nanolaba/sugar)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+![Java](https://img.shields.io/badge/Java-8%2B-blue)
+
 Крошечная Java-библиотека без зависимостей со статическими синтаксическими хелперами — один класс, одна цель: убрать шаблонный код из повседневной Java.
 
 Вся библиотека — это единственный класс `com.nanolaba.sugar.Code` с хелперами для самых частых неудобств: запуск лямбд с проверяемыми исключениями, проверка равенства сразу с несколькими значениями и ленивая мемоизация.
