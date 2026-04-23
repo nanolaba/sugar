@@ -10,7 +10,7 @@
         that throw checked exceptions, null-safe multi-value equality checks, and lazy memoization
     </description>
 
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
