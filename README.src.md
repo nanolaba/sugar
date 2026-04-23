@@ -84,7 +84,7 @@ Wraps a lambda that may throw a checked `Exception`. Any exception is rethrown a
 byte[] content = run(() -> Files.readAllBytes(path));
 
 // Side effect only
-run(() ->Thread.sleep(100));
+run(() -> Thread.sleep(100));
 ```
 
 ### `runQuietly` — ${en:'swallow, or fall back to a default', ru:'поглощаем исключение или возвращаем значение по умолчанию'}
@@ -97,7 +97,7 @@ Swallows any exception from the lambda. The overload with a default `Supplier` r
 int port = runQuietly(() -> Integer.parseInt(System.getenv("PORT")), () -> 8080);
 
 // Fire-and-forget
-runQuietly(() ->socket.close());
+runQuietly(() -> socket.close());
 ```
 
 ### `equalsAny` — ${en:'null-safe multi-value equality', ru:'null-безопасное равенство с любым из значений'}
@@ -106,7 +106,7 @@ Returns `true` if the first argument equals any of the following ones, using `Ob
 Возвращает `true`, если первый аргумент равен любому из последующих, по `Objects.equals` (т.е. `null` сравнивается безопасно).<!--ru-->
 
 ```java
-if(equalsAny(status, "OK","READY","IDLE")){
+if (equalsAny(status, "OK","READY","IDLE")) {
     // ...
 }
 ```

@@ -86,7 +86,7 @@ import static com.nanolaba.sugar.Code.*;
 byte[] content = run(() -> Files.readAllBytes(path));
 
 // Side effect only
-run(() ->Thread.sleep(100));
+run(() -> Thread.sleep(100));
 ```
 
 ### `runQuietly` — поглощаем исключение или возвращаем значение по умолчанию
@@ -98,7 +98,7 @@ run(() ->Thread.sleep(100));
 int port = runQuietly(() -> Integer.parseInt(System.getenv("PORT")), () -> 8080);
 
 // Fire-and-forget
-runQuietly(() ->socket.close());
+runQuietly(() -> socket.close());
 ```
 
 ### `equalsAny` — null-безопасное равенство с любым из значений
@@ -106,7 +106,7 @@ runQuietly(() ->socket.close());
 Возвращает `true`, если первый аргумент равен любому из последующих, по `Objects.equals` (т.е. `null` сравнивается безопасно).
 
 ```java
-if(equalsAny(status, "OK","READY","IDLE")){
+if (equalsAny(status, "OK","READY","IDLE")) {
     // ...
 }
 ```
