@@ -107,7 +107,7 @@ runQuietly(() ->socket.close());
 
 ```java
 if(equalsAny(status, "OK","READY","IDLE")){
-// ...
+    // ...
 }
 ```
 

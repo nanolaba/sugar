@@ -107,7 +107,7 @@ Returns `true` if the first argument equals any of the following ones, using `Ob
 
 ```java
 if(equalsAny(status, "OK","READY","IDLE")){
-// ...
+    // ...
 }
 ```
 
